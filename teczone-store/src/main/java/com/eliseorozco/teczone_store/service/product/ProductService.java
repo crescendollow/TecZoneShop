@@ -1,6 +1,7 @@
 package com.eliseorozco.teczone_store.service.product;
 
 import com.eliseorozco.teczone_store.excepctions.ProductNorFoundException;
+import com.eliseorozco.teczone_store.model.Category;
 import com.eliseorozco.teczone_store.model.Product;
 import com.eliseorozco.teczone_store.repository.ProductRespository;
 import com.eliseorozco.teczone_store.request.AddProductRequest;
@@ -23,6 +24,17 @@ public class ProductService implements IProductService{
     @Override
     public Product addProduct(AddProductRequest request) {
         return null;
+    }
+
+    private Product createProduct(AddProductRequest request, Category category){
+        return new Product(
+                request.getName(),
+                request.getBrand(),
+                request.getPrice(),
+                request.getInventory(),
+                request.getDescription(),
+                category
+        );
     }
 
     @Override
