@@ -3,19 +3,28 @@ package com.eliseorozco.teczone_store.service.product;
 import com.eliseorozco.teczone_store.excepctions.ProductNorFoundException;
 import com.eliseorozco.teczone_store.model.Product;
 import com.eliseorozco.teczone_store.repository.ProductRespository;
+import com.eliseorozco.teczone_store.request.AddProductRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
+@RequiredArgsConstructor
 public class ProductService implements IProductService{
 
-    private ProductRespository productRepository;
+    private final ProductRespository productRepository;
+
+    public ProductService(ProductRespository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @Override
-    public Product addProduct(Product product) {
+    public Product addProduct(AddProductRequest request) {
         return null;
     }
 
-    //Terminar metodos
     @Override
     public Product getProductById(Long id) {
         return productRepository.findById(id)

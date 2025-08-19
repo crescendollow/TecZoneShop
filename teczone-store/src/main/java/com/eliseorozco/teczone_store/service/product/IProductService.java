@@ -1,12 +1,12 @@
 package com.eliseorozco.teczone_store.service.product;
 
 import com.eliseorozco.teczone_store.model.Product;
+import com.eliseorozco.teczone_store.request.AddProductRequest;
 
 import java.util.List;
 
 public interface IProductService {
-    Product addProduct(Product product);
-
+    Product addProduct(AddProductRequest product);
     Product getProductById(Long id);
     void updateProductById(Product product, Long productId);
     void deleteProductById(Long id);
