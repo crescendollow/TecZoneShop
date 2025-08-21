@@ -3,12 +3,14 @@ package com.eliseorozco.teczone_store.service.product;
 import com.eliseorozco.teczone_store.excepctions.ProductNorFoundException;
 import com.eliseorozco.teczone_store.model.Category;
 import com.eliseorozco.teczone_store.model.Product;
+import com.eliseorozco.teczone_store.repository.CategoryRepository;
 import com.eliseorozco.teczone_store.repository.ProductRespository;
 import com.eliseorozco.teczone_store.request.AddProductRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -16,13 +18,18 @@ import java.util.List;
 public class ProductService implements IProductService{
 
     private final ProductRespository productRepository;
+    private final CategoryRepository categoryRepository;
 
-    public ProductService(ProductRespository productRepository) {
+    public ProductService(ProductRespository productRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
     public Product addProduct(AddProductRequest request) {
+
+        Category category = Optional.ofNullable(categoryRepository.findByName(request.getCategory().getName()));
+
         return null;
     }
 
