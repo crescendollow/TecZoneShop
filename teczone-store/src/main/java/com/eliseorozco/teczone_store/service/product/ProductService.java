@@ -28,7 +28,8 @@ public class ProductService implements IProductService{
     @Override
     public Product addProduct(AddProductRequest request) {
 
-        Category category = Optional.ofNullable(categoryRepository.findByName(request.getCategory().getName()));
+        Category category = Optional.ofNullable(categoryRepository.findByName(request.getCategory().getName()))
+                .orElseGet()
 
         return null;
     }

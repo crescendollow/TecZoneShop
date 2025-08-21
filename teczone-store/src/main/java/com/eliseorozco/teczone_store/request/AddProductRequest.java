@@ -3,6 +3,7 @@ package com.eliseorozco.teczone_store.request;
 import com.eliseorozco.teczone_store.model.Category;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.sql.SQLType;
 
 @Data
 public class AddProductRequest {
